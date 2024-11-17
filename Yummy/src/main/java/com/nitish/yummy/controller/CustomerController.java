@@ -1,6 +1,7 @@
 package com.nitish.yummy.controller;
 
 import com.nitish.yummy.dto.CustomerRequest;
+import com.nitish.yummy.dto.CustomerResponse;
 import com.nitish.yummy.services.CustomerService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -12,13 +13,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/api/v1/customer")
+//@RequestMapping("/api/v1/customer")
 
 public class CustomerController {
     public final CustomerService customerService;
 
-    @PostMapping
-    public ResponseEntity<String> createCustoemr(@RequestBody @Valid CustomerRequest request) {
+    @PostMapping("/register")
+    public ResponseEntity<CustomerResponse> createCustomer(@RequestBody @Valid CustomerRequest request) {
         return ResponseEntity.ok(customerService.createCustomer(request));
     }
 }
